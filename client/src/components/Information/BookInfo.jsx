@@ -86,8 +86,8 @@ function BookInfo() {
     const formData = new FormData();
     formData.append('img', selectedImage); // Bild hinzufügen
     // Andere Daten als Formular-Daten hinzufügen
-    Object.keys(data).forEach(key => formData.append(key, data[key]));
-  
+    Object.keys(data).forEach((key) => formData.append(key, data[key]));
+
     fetch(`${urlBookInfo}/addBookinfo`, {
       method: 'POST',
       headers: {
