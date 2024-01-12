@@ -1,5 +1,5 @@
 const API_KEY = 'AhmedAsakrahmachtWebsite';
-const BASE_URL = 'https://stubook.de'; // Backend server URL
+const BASE_URL = 'https://www.stubook.de'; // Backend server URL
 
 export const urlauth = `${BASE_URL}/${API_KEY}/api/auth`;
 
