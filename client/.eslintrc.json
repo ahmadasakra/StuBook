@@ -5,8 +5,7 @@
         "node": true
     },
     "extends": [
-        "plugin:react/recommended",
-        "google"
+        "plugin:react/recommended"
     ],
     "overrides": [],
     "parserOptions": {
