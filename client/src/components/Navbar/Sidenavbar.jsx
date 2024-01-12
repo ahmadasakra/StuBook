@@ -43,18 +43,19 @@ function Sidenavbar(props) {
             <p><span>hi,</span> {user.toUpperCase()}</p>
           </div>
           <ul className='Sidenavlinks'>
-            <li><Link to="/" onClick={togglerfunction}>Home</Link></li>
+            <li><Link to="/" onClick={togglerfunction}>Startseite</Link></li>
             <li><Link to="/search" onClick={togglerfunction}>Suche</Link></li>
             <li><Link to='/favourite' onClick={togglerfunction}>Favourite</Link></li>
-            <li><Link to="/user" onClick={togglerfunction}>Profile</Link></li>
-            <li><Link to='/user' onClick={togglerfunction}>Reviews</Link></li>
-            <li><Link to='/about' onClick={togglerfunction}>Help</Link></li>
+            <li><Link to="/user" onClick={togglerfunction}>Profil</Link></li>
+            <li><Link to='/user' onClick={togglerfunction}>Rezensionen</Link></li>
+            <li><Link to='/about' onClick={togglerfunction}>Hilfe</Link></li>
+            <li><Link to='/admin' onClick={togglerfunction}>Admin</Link></li>
           </ul>
         </div>
         <ul className='sidenavauth'>
           {login ?
             <div>
-              <li><Link to="/login" onClick={logoutfunc}>Logout</Link></li>
+              <li><Link to="/login" onClick={logoutfunc}>Abmelden</Link></li>
             </div> :
             <div>
               <li><Link to="/login" onClick={togglerfunction}>Anmelden</Link></li>

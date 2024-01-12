@@ -27,7 +27,7 @@ function Navbar() {
       <h3>Administrationsmenü</h3>
       <Link className={style.adminNavbarLink} to='/admin/addbook'>Buch hinzufügen</Link>
       <Link className={style.adminNavbarLink} to='/admin/books'>Bücher</Link>
-      <button className={style.adminNavbarLink} onClick={logout}>Ausloggen</button>
+      <button className={style.adminNavbarLink} onClick={logout}>Abmelden</button>
     </div>
   );
 }
