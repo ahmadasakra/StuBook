@@ -1,0 +1,117 @@
+.footer {
+    background-color: #f0f0f0; /* Lighter and more neutral background */
+    width: calc(100% - 20px);
+    padding: 20px 10px; /* Increased padding for better spacing */
+    bottom: 0;
+    margin-top: 50px;
+    font-family: 'Arial', sans-serif; /* Modern font */
+}
+
+.footer .footerSection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly; /* Even spacing for a balanced look */
+    width: 80%;
+    margin: auto;
+}
+
+
+.footerSection .footerSecA {
+    width: calc(66%/3 - 20px);
+    margin: 10px; /* Increased margin for better separation */
+    display: flex;
+    flex-direction: column;
+}
+
+.footerSection .footerSecA a {
+    color: #333; /* Darker color for better contrast */
+    text-decoration: none;
+    text-transform: capitalize;
+    margin-bottom: 8px; /* Spacing between links */
+}
+.footer-container { /* This class should wrap around your footer */
+    margin-top: auto; /* Pushes footer to the bottom */
+  }
+  
+.content-wrapper {
+    flex: 1;
+  }
+  
+
+.footerSection .footerSecB {
+    width: calc(33% - 20px);
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.footerSection .footerSecB a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold; /* Bold for emphasis */
+    margin-bottom: 8px;
+}
+
+.footerSection p {
+    padding: 0;
+    margin: 0;
+    color: #666; /* Subtle text color */
+}
+
+.footer .copyright {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-style: italic;
+    color: #666;
+    font-size: 14px; /* Smaller font size for copyright text */
+}
+
+.footer .SocialFooter {
+    display: flex;
+    justify-content: center;
+}
+
+.SocialFooter a {
+    font-size: 24px;
+    margin: 0 15px; /* Reduced margin for a compact look */
+    color: #333; /* Matching the link color */
+    transition: 500ms ease-in-out;
+}
+
+.SocialFooter a:hover {
+    transform: scale(1.2);
+    color: #4CAF50; /* Color that matches your theme */
+}
+
+.footerCopyright {
+    padding: 20px 20px; /* Increased padding */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 2px solid #e0e0e0; /* Lighter border for a subtle separation */
+}
+
+@media (max-width:760px) {
+    .footer .footerSection {
+        width: 90%;
+    }
+
+    .footerSection .footerSecA, .footerSection .footerSecB {
+        text-align: center;
+        width: calc(100% / 2 - 20px);
+    }
+}
+
+@media (max-width:400px) {
+    .footerSection .footerSecA, .footerSection .footerSecB {
+        width: 100%; /* Full width for small devices */
+    }
+
+    .footerCopyright {
+        justify-content: center;
+    }
+}

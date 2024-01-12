@@ -1,0 +1,96 @@
+.bookdetail {
+    background: linear-gradient(to right, rgb(255, 255, 255), rgb(243, 240, 240));
+    width: 80%;
+    margin: 20px auto;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners */
+    font-style: normal; /* Removed italic for better readability */
+}
+
+.bookdetail .aboutBook {
+    padding: 20px;
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.bookdetail .aboutBook .bookimage {
+    max-width: 300px; /* Increased width */
+    max-height: auto; /* Adjust height automatically */
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center the image horizontally */
+    align-items: center; /* Center the image vertically */
+    margin-right: 20px; /* Add some margin to the right */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add a shadow for depth */
+}
+
+/* You might also want to add a media query for smaller screens */
+@media (max-width: 768px) {
+    .bookdetail .aboutBook .bookimage {
+        max-width: 100%; /* Full width on smaller screens */
+        margin-bottom: 20px; /* Margin at the bottom when stacked */
+    }
+}
+.bookdetail .aboutBook .bookdata {
+    padding-top: 10px;
+}
+
+.bookdetail .aboutBook .bookdata h1, 
+.bookdetail .aboutBook .bookdata h2, 
+.bookdetail .aboutBook .bookdata h3, 
+.bookdetail .aboutBook .bookdata h4 {
+    font-size: 18px; /* Unified font size for headings */
+    font-weight: 600; /* Bold font for headings */
+    margin-bottom: 10px; /* Consistent margin */
+}
+
+
+
+.bookdetail .aboutBook .bookdata button {
+    color: #4CAF50; /* Color matching your theme */
+    background-color: transparent;
+    padding: 5px 10px;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px; /* Rounded corners */
+    border: 2px solid #4CAF50; /* Border color matching the text */
+    transition: background-color 0.3s, color 0.3s; /* Transition for hover effect */
+}
+
+.bookdetail .aboutBook .bookdata button:hover {
+    background-color: #4CAF50; /* Color on hover */
+    color: white; /* Text color on hover */
+    text-decoration: none; /* Removing underline on hover */
+}
+
+.bookdetail span {
+    font-weight: 500;
+}
+
+.bookdetail .bookreviews {
+    width: 40%;
+    padding: 20px;
+    border-left: 2px solid rgb(194, 194, 194);
+}
+
+@media (max-width: 769px) {
+    .bookdetail {
+        width: 93%;
+    }
+}
+
+@media (max-width: 593px) {
+    .bookdetail {
+        flex-direction: column; /* Stack elements vertically on smaller screens */
+    }
+
+    .bookdetail .aboutBook, .bookdetail .bookreviews {
+        width: 100%;
+        border: none;
+    }
+}

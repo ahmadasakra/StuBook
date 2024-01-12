@@ -1,0 +1,133 @@
+.navbar {
+    display: flex;
+    justify-content: space-evenly;
+    position: fixed;
+    width: 100%;
+    background-color: #333; /* Darker shade for modern look */
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 2px 4px rgba(0,0,0,.3); /* Add shadow for depth */
+}
+body.dark {
+    background-color: #121212;
+    color: white;
+  }
+  
+  body.dark .card {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  body.dark .navbar {
+    background-color: #222;
+    color: #fff;
+  }
+.navtoggler {
+    margin: 3px 10px;
+    font-size: 24px;
+    display: none; /* Hidden by default, shown in media query */
+    align-items: center;
+    cursor: pointer;
+}
+
+.navlinks {
+    padding: 0;
+    display: flex;
+    list-style: none;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.navlinks li {
+    margin: 0 15px; /* Adjusted margin for better spacing */
+}
+
+.navlinkpath {
+    font-size: 18px;
+    font-weight: 500; /* Slightly bolder */
+    color: #FFF; /* Light color for contrast */
+    text-decoration: none;
+    transition: color 0.3s; /* Smooth transition for hover effect */
+}
+
+.navlinkpath:hover {
+    color: #04AA6D; /* Bright color for hover */
+}
+
+.navauth {
+    display: flex;
+    list-style: none;
+    margin: 0 40px;
+    align-items: center;
+    justify-content: center;
+}
+
+.navauth li {
+    margin: 0 10px; /* Adjusted margin */
+}
+
+.navauthpath {
+    text-decoration: none;
+    font-size: 18px;
+    color: #FFF; /* Light color for contrast */
+    background-color: transparent; /* Remove background for a cleaner look */
+    padding: 2px 8px;
+    border-radius: 3px;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+}
+
+.navauthpath:hover {
+    background-color: #04AA6D; /* Bright color for hover */
+    color: #FFF; /* White text on hover */
+}
+
+.dropbtn {
+    background-color: #4C4C4C; /* Darker button color */
+    color: #FFF; /* Light text color */
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 3px; /* Rounded corners */
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 3px; /* Rounded corners */
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: #333; /* Darker text for contrast */
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+.dropdown-content a:hover {
+    background-color: #04AA6D; /* Bright color for hover */
+    color: #FFF; /* White text on hover */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+@media (max-width:810px) {
+    .navlinks {
+        display: none;
+    }
+    .navtoggler {
+        display: flex;
+    }
+}
+
+@media (max-width:620px) {
+    .navauth {
+        display: none;
+    }
+}

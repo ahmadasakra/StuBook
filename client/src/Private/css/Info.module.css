@@ -1,0 +1,83 @@
+/* Zentrieren Sie den Hauptcontainer */
+.BookinfoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #ffffff;
+}
+
+/* Verbesserung des Formularstils */
+.BookinfoForm {
+  width: 100%;
+  max-width: 400px;
+  margin: 3rem auto; /* Vertikaler Abstand oben und unten, zentriert horizontal */
+  padding-left: 5rem;
+  padding-right: 5rem;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+  background: #f7f7f7;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+}
+
+.BookinfoForm input {
+  width: 100%;
+  padding: 10px 5px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 0; /* Keine abgerundeten Ecken */
+  box-shadow: none;
+}
+
+/* Stil für Überschriften und Text */
+.BookinfoForm h1, .BookinfoForm p {
+  margin-bottom: 1rem; /* Gibt Abstand nach unten */
+  
+}
+
+/* Stil für Eingabefelder */
+.BookinfoForm .inputGroup {
+  margin-bottom: 1rem; /* Abstand zwischen den Eingabefeldern */
+}
+
+.BookinfoForm .inputGroup input {
+  width: 100%; /* Nimmt die volle Breite des Containers ein */
+  padding: 0.75rem; /* Guter Innenabstand für Touch-Geräte */
+  border: 1px solid #ced4da; /* Subtiler Border-Stil */
+  border-radius: 0.25rem; /* Leicht abgerundete Ecken */
+}
+
+/* Stil für den Senden-Button */
+.BookinfoForm button {
+  width: 100%;
+  padding: 15px 15px;
+  margin-top: 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+.BookinfoForm button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive Anpassungen */
+@media (max-width: 576px) {
+  .BookinfoForm {
+    padding: 1rem; /* Weniger Polsterung auf kleinen Bildschirmen */
+  }
+}
+
+.BookinfoFormDesign input {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+}
