@@ -65,13 +65,13 @@ function UserReview() {
           .then((res) => res.json())
           .then((res) => {
             if (res.status === 0) {
-              callMessage('Successful', 'Deleted');
+              callMessage('Erfolgreich', 'Gelöscht');
               fetchUserReviews();
             } else {
-              callMessage('Error', 'Unable to delete');
+              callMessage('Error', 'Löschen nicht möglich');
             }
           }).catch(() => {
-            callMessage('Server Error', 'Unable to connect');
+            callMessage('Server Error', 'Verbindung konnte nicht hergestellt werden');
           });
     }
   };
@@ -127,12 +127,12 @@ function UserReview() {
         .then((res) => {
           if (res.status === 0) {
             fetchUserReviews();
-            callMessage('Successful', 'Updated');
+            callMessage('Erfolgreich', 'Aktualisiert');
           } else {
-            callMessage('Error', 'Unable to update');
+            callMessage('Error', 'Aktualisierung nicht möglich');
           }
         }).catch(() => {
-          callMessage('Server Error', 'Unable to connect');
+          callMessage('Server Error', 'Verbindung konnte nicht hergestellt werden');
         });
   };
 

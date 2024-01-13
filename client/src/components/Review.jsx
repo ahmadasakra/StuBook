@@ -77,12 +77,12 @@ function Review(props) {
             fetchReview();
             updatereview('');
           } else {
-            updatemessage('Sorry, Unable to add');
-            callMessage('Server Error', 'Unable to Add your reviews');
+            updatemessage('Leider, Hinzufügen nicht möglich');
+            callMessage('Server Error', 'Ihre Bewertungen können nicht hinzugefügt werden');
           }
         })
         .catch(()=>{
-          callMessage('Server Error', 'Unable to Add your reviews');
+          callMessage('Server Error', 'Ihre Bewertungen können nicht hinzugefügt werden');
         });
   };
 

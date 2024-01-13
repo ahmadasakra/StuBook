@@ -46,11 +46,11 @@ function UpdateBook() {
               publication: res.data.publication,
             });
           } else {
-            callMessage('Server Error', 'Unable to fetch detail');
+            callMessage('Server Error', 'Details können nicht abgerufen werden');
           }
         })
         .catch((err) => {
-          callMessage('Server Error', 'Unable to fetch detail');
+          callMessage('Server Error', 'Details können nicht abgerufen werden');
         });
   };
 
@@ -76,11 +76,11 @@ function UpdateBook() {
             localStorage.removeItem('adminToken');
             window.location.reload();
           } else {
-            callMessage('Oops', 'upable to update book');
+            callMessage('Oops', 'Aktualisierung nicht möglich book');
           }
         })
         .catch((error) => {
-          callMessage('Oops', 'upable to update book');
+          callMessage('Oops', 'Aktualisierung nicht möglich book');
         });
   };
 
@@ -128,16 +128,16 @@ function UpdateBook() {
         .then((res)=>res.json())
         .then((res)=>{
           if (res.status===0) {
-            callMessage('Success', 'Data Updated');
+            callMessage('Erfolgreich', 'Daten aktualisiert');
           } else if (res.status === -10) {
             localStorage.removeItem('adminToken');
             window.location.reload();
           } else {
-            callMessage('Oops', 'upable to update');
+            callMessage('Oops', 'Aktualisierung nicht möglich');
           }
         })
         .catch((err)=>{
-          callMessage('Oops', 'upable to update');
+          callMessage('Oops', 'Aktualisierung nicht möglich');
         });
   };
 
@@ -158,7 +158,7 @@ function UpdateBook() {
             onSubmit={(e) => updateBookImage(e)}
             encType="multipart/form-data">
             <div>
-              <label htmlFor="img">Image</label>
+              <label htmlFor="img">Bild</label>
               <input type="file" id="img" name="img" />
             </div>
             <div>
@@ -169,16 +169,16 @@ function UpdateBook() {
       </div>
       <div className={style.DataUpdate}>
         <div>
-            Title : <span>{booktitle}</span>
+            Titel : <span>{booktitle}</span>
         </div>
         <div>
             Author : <span>{bookauthor}</span>
         </div>
         <div>
-            Language : <input type="text" name="language" value={bookInfo.language} onChange={(e) => updateDataBook(e)}/>
+            Sprache : <input type="text" name="language" value={bookInfo.language} onChange={(e) => updateDataBook(e)}/>
         </div>
         <div>
-            Category : <select id="category" name="category" onChange={(e) => updateDataBook(e)}>
+            Kategorie : <select id="category" name="category" onChange={(e) => updateDataBook(e)}>
             <option value={bookInfo.category}>{bookInfo.category}</option>
             <option value="Novel">Novel</option>
             <option value="Story">Story</option>

@@ -44,7 +44,7 @@ function Favourite() {
           }
         })
         .catch((err) => {
-          callMessage('Server Error', 'Unable to fetch detail');
+          callMessage('Server Error', 'Details können nicht abgerufen werden');
         });
   };
 
@@ -63,14 +63,14 @@ function Favourite() {
         .then((res) => res.json())
         .then((res) => {
           if (res.status === 0) {
-            callMessage('Successful', 'Deleted');
+            callMessage('Erfolgreich', 'Gelöscht');
             fetchFavouriteData();
           } else {
-            callMessage('Error', 'Unable to delete');
+            callMessage('Error', 'Löschen nicht möglich');
           }
         })
         .catch(() => {
-          callMessage('Server Error', 'Unable to fetch detail');
+          callMessage('Server Error', 'Details können nicht abgerufen werden');
         });
   };
 
