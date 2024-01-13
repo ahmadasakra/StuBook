@@ -78,6 +78,7 @@ function Navbar() {
         </li>
         <li><Link className='navlinkpath' to="/search">Suche</Link></li>
         <li><Link className='navlinkpath' to="/about">Über</Link></li>
+        <li><Link className='navlinkpath' to="/sendInfo">Neues Buch</Link></li>
         <li><Link className='navlinkpath' to="/admin">Admin</Link></li>
       </ul>
       <CartIcon />
