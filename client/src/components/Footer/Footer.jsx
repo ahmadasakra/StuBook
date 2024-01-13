@@ -34,7 +34,7 @@ function Footer() {
         </div>
         <div className={style.footerCopyright}>
           <div className={style.copyright}>
-            <a rel="noreferrer" href='https://github.com/ahmadasakra/' target='_blank'>STUDBOOK</a>
+            <a rel="noreferrer" href='https://github.com/ahmadasakra/' target='_blank'>StuBook</a>
             <p>Alle Rechte vorbehalten</p>
           </div>
           <div className={style.SocialFooter}>

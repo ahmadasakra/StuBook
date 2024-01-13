@@ -113,7 +113,7 @@ function Login() {
           </fieldset>
         </form>
         <button className='loginbutton' type='button' onClick={onclickLogin}>Anmelden</button>
-        <p className='new-user-text'>Neu im STUDBOOK? <Link to='/signup' className='signup-link'>Registrieren</Link> </p>      </div>
+        <p className='new-user-text'>Neu im StuBook? <Link to='/signup' className='signup-link'>Registrieren</Link> </p>      </div>
       <div className='logoG'>
         <GifLogo1 />
       </div>
