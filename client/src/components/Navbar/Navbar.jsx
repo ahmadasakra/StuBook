@@ -87,7 +87,7 @@ function Navbar() {
             <button className="dropbtn" type='button'>{user.toUpperCase()}</button>
             <div className="dropdown-content">
               <Link to="/user">Profil</Link>
-              <Link to="/login" onClick={logoutuser}>Ausloggen</Link>
+              <Link to="/login" onClick={logoutuser}>Abmelden</Link>
             </div>
           </div> :
           <div className='navauth'>
@@ -96,7 +96,7 @@ function Navbar() {
                 Login
               </Link>
             </li>
-            <li>Or</li>
+            <li>Oder</li>
             <li><Link className='navauthpath' to="/signup">Registrieren</Link></li>
           </div>
         }
