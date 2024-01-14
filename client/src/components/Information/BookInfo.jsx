@@ -121,7 +121,7 @@ function BookInfo() {
                         Falls es ein Buch gibt, bei dem das nicht der Fall ist
                         auf unserer Plattform verfügbar. Sie können uns dies mitteilen, indem Sie dieses Formular ausfüllen.
           </p>
-          <h1>Fill Book Detail</h1>
+          <h1>Buchdetails ausfüllen</h1>
           <h3>{bookMessage}</h3>
           <form onKeyDown={(e) => handleKeyPress(e)}>
             <div className={style.BookinfoFormDesign}>
@@ -130,13 +130,13 @@ function BookInfo() {
             <div className={style.BookinfoFormDesign}>
               <input type='text' placeholder='Geben Sie den Namen des Autors ein' name='bookauthor' value={data['bookauthor']} onChange={(e) => updateDataFunction(e)} />
             </div>
-            <h2>Personal Detail</h2>
+            <h2>Persönliches Detail</h2>
             <div className={style.BookinfoFormDesign}>
               <input type='text' placeholder='Name eingeben' name='name' value={data['name']} onChange={(e) => updateDataFunction(e)} />
               <p>{NameMessage}</p>
             </div>
             <div className={style.BookinfoFormDesign}>
-              <input type='text' placeholder='E-Nauk eubgebeb' name='email' value={data['email']} onChange={(e) => updateDataFunction(e)} />
+              <input type='text' placeholder='E-Mail eingeben' name='email' value={data['email']} onChange={(e) => updateDataFunction(e)} />
               <p>{emailMessage}</p>
             </div>
           </form>
