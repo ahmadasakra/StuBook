@@ -8,8 +8,9 @@ const schema = new mongoose.Schema(
         publication: { type: String, required: true },
         category: { type: String },
         preis: { type: Number, required: true },
-        url: { type: String }
-    }
+        contactName: { type: String, required: false },
+        email: { type: String, required: false }
+        }
 )
 
 module.exports = mongoose.model('books', schema);

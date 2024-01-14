@@ -1,13 +1,13 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import style from '../Private/css/DetailBook.module.css';
-import {authToken, urlbook, urlFavourite} from '../Appurl';
+import { authToken, urlbook, urlFavourite } from '../Appurl';
 import Loader from '../loader/Loader';
 import Review from './Review';
 import Footer from './Footer/Footer';
 import Corousel from './Corousel/Corousel';
-import {useLocation} from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import FetchImage from '../specialFunction/FetchImage';
-import {callMessage} from './Alert/CallMessage';
+import { callMessage } from './Alert/CallMessage';
 
 
 function DetailBook() {
@@ -23,6 +23,9 @@ function DetailBook() {
   const [publication, updatepublication] = useState('');
   const [preis, setPreis] = useState('');
   const [IsLoading, updateLoading] = useState(false);
+  const [contactName, setContactName] = useState('');
+  const [email, setEmail] = useState('');
+
   // console.log(url);
   // console.log(bookid);
   // console.log(booktitle);
@@ -38,33 +41,35 @@ function DetailBook() {
     updateLoading(true);
     await fetch(`${urlbook}/onebook/id`, {
       method: 'POST',
-      headers: {'content-type': 'application/json'},
+      headers: { 'content-type': 'application/json' },
       body: JSON.stringify({
         id: bookid,
         title: booktitle,
         author: bookauthor,
       }),
     })
-        .then((res) => res.json())
-        .then((res) => {
+      .then((res) => res.json())
+      .then((res) => {
         // console.log(res);
-          if (res.status === 0) {
-            updatelanuage(res.data.language);
-            updatecategory(res.data.category);
-            updatepublication(res.data.publication);
-            setPreis(res.data.preis);
-          } else {
-            callMessage('Serverfehler', 'Details können nicht abgerufen werden');
-          }
-        })
-        .catch((err) => {
+        if (res.status === 0) {
+          updatelanuage(res.data.language);
+          updatecategory(res.data.category);
+          updatepublication(res.data.publication);
+          setPreis(res.data.preis);
+          setContactName(res.data.contactName);
+          setEmail(res.data.email);
+        } else {
           callMessage('Serverfehler', 'Details können nicht abgerufen werden');
-        });
+        }
+      })
+      .catch((err) => {
+        callMessage('Serverfehler', 'Details können nicht abgerufen werden');
+      });
     updateLoading(false);
   };
 
 
-  const addFavourite = ()=>{
+  const addFavourite = () => {
     fetch(`${urlFavourite}/add`, {
       method: 'POST',
       headers: {
@@ -77,19 +82,19 @@ function DetailBook() {
         author: bookauthor,
       }),
     })
-        .then((res)=>res.json())
-        .then((res)=>{
-          if (res.status===0) {
-            callMessage('Erfolgreich', 'Das Buch wurde zu Ihrer Favoritenliste hinzugefügt');
-          } else if (res.status===1) {
-            callMessage('Oops', 'Das Buch steht bereits auf Ihrer Favoritenliste');
-          } else {
-            callMessage('Irgendwas stimmt nicht', 'Dieses Buch kann nicht zu Ihrer Favoritenliste hinzugefügt werden');
-          }
-        })
-        .catch((err)=>{
-          callMessage('Serverfehler', 'Dieses Buch kann nicht zu Ihrer Favoritenliste hinzugefügt werden');
-        });
+      .then((res) => res.json())
+      .then((res) => {
+        if (res.status === 0) {
+          callMessage('Erfolgreich', 'Das Buch wurde zu Ihrer Favoritenliste hinzugefügt');
+        } else if (res.status === 1) {
+          callMessage('Oops', 'Das Buch steht bereits auf Ihrer Favoritenliste');
+        } else {
+          callMessage('Irgendwas stimmt nicht', 'Dieses Buch kann nicht zu Ihrer Favoritenliste hinzugefügt werden');
+        }
+      })
+      .catch((err) => {
+        callMessage('Serverfehler', 'Dieses Buch kann nicht zu Ihrer Favoritenliste hinzugefügt werden');
+      });
   };
 
   // const getimage = ()=>{
@@ -108,7 +113,7 @@ function DetailBook() {
         {IsLoading ? <Loader /> : <div></div>}
         <div className={style.aboutBook}>
           <div className={style.bookimage}>
-            <FetchImage title={booktitle} id={bookid}/>
+            <FetchImage title={booktitle} id={bookid} />
           </div>
           <div className={style.bookdata}>
             <h1>{booktitle}</h1>
@@ -117,6 +122,8 @@ function DetailBook() {
             <h3>Sprache:<span> {language}</span></h3>
             <h3>Veröffentlichen durch: <span>{publication}</span></h3>
             <h4>Preis: <span>{preis} €</span></h4>
+            <h3>Kontaktname: <span>{contactName}</span></h3>
+            <h3>E-Mail: <span>{email}</span></h3>
 
             <button type='button' onClick={addFavourite}>Zum Favoriten hinzufügen</button>
           </div>
@@ -125,7 +132,7 @@ function DetailBook() {
           <Review bookid={bookid} bookname={booktitle} />
         </div>
       </div>
-      {IsLoading ? <div></div> : <Corousel type={category.length===0 ? 'All': category} delay='3200' />}
+      {IsLoading ? <div></div> : <Corousel type={category.length === 0 ? 'Alle' : category} delay='3200' />}
       <Footer />
     </div>
   );

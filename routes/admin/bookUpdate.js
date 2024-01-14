@@ -29,7 +29,9 @@ router.post('/addbook', jwtaccess, upload.single('img'), async (req, res) => {
             publication: req.body.publication,
             preis: req.body.preis,
             category: req.body.category,
-            url: req.body.url
+            url: req.body.url,
+            contactName: req.body.contactName,
+            email: req.body.email
         });
 
         const savedBook = await book.save();
@@ -85,6 +87,8 @@ router.post('/update/data', jwtaccess, async (req, res) => {
             language: req.body.language,
             publication: req.body.publication,
             category: req.body.category,
+            contactName: req.body.contactName,
+            email: req.body.email
         });
         res.status(200).json({ status: 0 });
     } catch (error) {
