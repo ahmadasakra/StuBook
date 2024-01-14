@@ -77,7 +77,7 @@ async function sendOTP(Useremail,otp) {
     const result = await transporter.sendMail({
         from: process.env.EMAIL,
         to: email,
-        subject: 'Varification | StuBook ',
+        subject: 'Verifizierung | StuBook ',
         html: `
             <div style="width: 80%; margin: auto;">
                 <div style="width: 100%; max-width: 300px; height: 120px; margin: auto;">
