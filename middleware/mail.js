@@ -47,10 +47,10 @@ async function send() {
                     Admin,
                 </h3>
                 <h3 style="font-size: 14px; padding: 0; margin: 0; margin-bottom: 50px; text-align: left;">
-                    <a href="https://harshrastogi15.github.io/Personal/">Profil</a>
+                    <a href="https://www.asakrah.com/">Profil</a>
                 </h3>
                 <h3 style="font-size: 14px; padding: 0; margin: 0; margin-top: 10px; margin-bottom: 10px; text-align: center;">
-                    Please Visit : https://hrbookstore.herokuapp.com/
+                    Bitte besuche : https://asakrah.com/
                 </h3>
             </div>
         `,
@@ -68,11 +68,11 @@ async function send() {
 async function sendOTP(Useremail,otp) {
     var email = `${Useremail}`;
     var heading = `
-    Welcome to the StuBook.
+    Willkommen im StuBook.
     `
-    var message = `Your verification code : ${otp}
+    var message = `Ihr Bestätigungscode : ${otp}
                 `;
-    var footerMessage = `OTP is valid for 5 min `;
+    var footerMessage = `Der Token ist 5 Minuten lang gültig `;
 
     const result = await transporter.sendMail({
         from: process.env.EMAIL,
