@@ -12,16 +12,11 @@ function BookInfo() {
   const email = useSelector((state) => state.user.email);
   const user = useSelector((state) => state.user.name);
   const login = useSelector((state) => state.user.login);
-  const [imageMessage, updateImageMessage] = useState('');
-  const [selectedImage, setSelectedImage] = useState(null);
   const [data, updateData] = useState({
     email: email,
     name: '',
     bookname: '',
     bookauthor: '',
-    isbn: '',
-    publishYear: '', // Fügen Sie dies hinzu
-    category: '',
   });
   const [emailMessage, updateEmailMessage] = useState('');
   const [bookMessage, updateBookMessage] = useState('');
@@ -42,17 +37,6 @@ function BookInfo() {
     return false;
   };
 
-  const handleImageChange = (event) => {
-    const selectedFile = event.target.files[0];
-    // Überprüfen Sie, ob eine Datei ausgewählt wurde
-    if (selectedFile) {
-      setSelectedImage(selectedFile);
-      updateImageMessage('');
-    } else {
-      setSelectedImage(null);
-      updateImageMessage('Bitte wählen Sie ein Bild aus.');
-    }
-  };
   const handleKeyPress = (event) => {
     if (event.key === 'Eingeben') {
       sendData();
@@ -68,25 +52,16 @@ function BookInfo() {
       } else {
         updateNameMessage('');
       }
-      if (!selectedImage) {
-        updateImageMessage('Bitte wählen Sie ein Bild aus.');
-        return;
-      }
       return;
     } else {
       updateBookMessage('');
     }
     if (data.name.length === 0) {
-      updateNameMessage('Namen schreiben');
+      updateNameMessage('Write name');
       return;
     } else {
       updateNameMessage('');
     }
-
-    const formData = new FormData();
-    formData.append('img', selectedImage); // Bild hinzufügen
-    // Andere Daten als Formular-Daten hinzufügen
-    Object.keys(data).forEach((key) => formData.append(key, data[key]));
 
     fetch(`${urlBookInfo}/addBookinfo`, {
       method: 'POST',
@@ -97,9 +72,6 @@ function BookInfo() {
         email: data.email,
         bookname: data.bookname,
         bookauthor: data.bookauthor,
-        isbn: data.isbn,
-        publishYear: data.publishYear,
-        category: data.category,
         name: data.name,
       }),
     })
@@ -111,12 +83,12 @@ function BookInfo() {
             navigate('/');
           } else {
             console.log(res.error);
-            callMessage('Error', 'Nicht möglich zu senden');
+            callMessage('Fehler', 'Nicht möglich zu senden');
           }
         })
         .catch((error) => {
         // console.log(error)
-          callMessage('Error', 'Nicht möglich zu senden');
+          callMessage('Fehler', 'Nicht möglich zu senden');
         });
   };
 
@@ -132,7 +104,7 @@ function BookInfo() {
 
   useEffect(() => {
     if (data.email.length > 0 && !validateemail(data.email)) {
-      updateEmailMessage('Ungültige E-Mail');
+      updateEmailMessage('Invalid Email');
     } else {
       updateEmailMessage('');
     }
@@ -145,10 +117,11 @@ function BookInfo() {
           <GifLogo1 />
         </div>
         <div className={style.BookinfoForm}>
-          <h1>Buchdetails ausfüllen</h1>
           <p>
-          Wenn es ein Buch gibt, das auf unserer Plattform nicht verfügbar ist. Sie können uns dies mitteilen, indem Sie dieses Formular ausfüllen.
+                        Falls es ein Buch gibt, bei dem das nicht der Fall ist
+                        auf unserer Plattform verfügbar. Sie können uns dies mitteilen, indem Sie dieses Formular ausfüllen.
           </p>
+          <h1>Fill Book Detail</h1>
           <h3>{bookMessage}</h3>
           <form onKeyDown={(e) => handleKeyPress(e)}>
             <div className={style.BookinfoFormDesign}>
@@ -157,18 +130,17 @@ function BookInfo() {
             <div className={style.BookinfoFormDesign}>
               <input type='text' placeholder='Geben Sie den Namen des Autors ein' name='bookauthor' value={data['bookauthor']} onChange={(e) => updateDataFunction(e)} />
             </div>
-            <div className={style.BookinfoFormDesign}> <input type='text' placeholder='ISBN eingeben' name='isbn' value={data['isbn']} onChange={(e) => updateDataFunction(e)} /> </div>
-            <div className={style.BookinfoFormDesign}> <input type='text' placeholder='Veröffentlichungsjahr eingeben' name='publishYear' value={data['publishYear']} onChange={(e) => updateDataFunction(e)} /> </div>
-            <div className={style.BookinfoFormDesign}> <input type='text' placeholder='Kategorie eingeben' name='category' value={data['category']} onChange={(e) => updateDataFunction(e)} /> </div>
-            <div className={style.BookinfoFormDesign}> <label htmlFor="imageUpload">Bild auswählen</label> <input type="file" id="imageUpload" accept="image/*" onChange={handleImageChange} /> <p>{imageMessage}</p> </div>
-            <h2>Persönliches Detail</h2>
+            <h2>Personal Detail</h2>
             <div className={style.BookinfoFormDesign}>
               <input type='text' placeholder='Name eingeben' name='name' value={data['name']} onChange={(e) => updateDataFunction(e)} />
               <p>{NameMessage}</p>
             </div>
-            <div className={style.BookinfoFormDesign}> <input type='text' placeholder='Email eingeben' name='email' value={data['email']} onChange={(e) => updateDataFunction(e)} /> <p>{emailMessage}</p> </div>
+            <div className={style.BookinfoFormDesign}>
+              <input type='text' placeholder='E-Nauk eubgebeb' name='email' value={data['email']} onChange={(e) => updateDataFunction(e)} />
+              <p>{emailMessage}</p>
+            </div>
           </form>
-          <button type='button' onClick={sendData}>Send</button>
+          <button type='button' onClick={sendData}>Einreichen</button>
         </div>
         <div className={style.InfoLogoGIF}>
           <GifLogo2 />

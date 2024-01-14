@@ -17,17 +17,17 @@ const transporter = nodemailer.createTransport({
 async function send() {
     var email = ``;
     var heading = `
-    Willkommen beim StuBook.
+    Willkommen im StuBook.
     `
-    var message = `Hier finden Sie Informationen zu den Büchern.
-                    Bitte helfen Sie anderen Nutzern, indem Sie Ihre Rezension über Bücher abgeben.
+    var message = `Hier finden Sie die Informationen zum Buch.
+    Bitte helfen Sie anderen Benutzern, indem Sie Ihre Rezension zu Büchern abgeben
                 `;
-    var footerMessage = `Danke, dass Sie bei uns sind.`;
+    var footerMessage = `Vielen Dank, dass Sie uns informiert haben.`;
 
     const result = await transporter.sendMail({
         from: process.env.EMAIL,
         to: email,
-        subject: 'no-reply__HR_Buchladen ',
+        subject: 'no-reply__HR_BookStore ',
         html: `
             <div style="width: 80%; margin: auto;">
                 <div style="width: 100%; max-width: 300px; height: 120px; margin: auto;">
@@ -40,17 +40,17 @@ async function send() {
                 <p>${message}</p>
                 <p>${footerMessage}</p>
                 <p style="font-size: 14px; padding: 0; margin: 0; margin-top: 50px; text-align: left;">
-                    Grüße
+                    Viele Grüße
                 </p>
                 <h1 style="font-size: 16px; padding: 0; margin: 0; margin-top: 5px; text-align: left;">StuBook,</h1>
                 <h3 style="font-size: 14px; padding: 0; margin: 0; text-align: left;">
                     Admin,
                 </h3>
                 <h3 style="font-size: 14px; padding: 0; margin: 0; margin-bottom: 50px; text-align: left;">
-                    <a href="https://asakrah.com/">Profil</a>
+                    <a href="https://harshrastogi15.github.io/Personal/">Profil</a>
                 </h3>
                 <h3 style="font-size: 14px; padding: 0; margin: 0; margin-top: 10px; margin-bottom: 10px; text-align: center;">
-                    Bitte besuchen Sie: https://www.asakrah.com/
+                    Please Visit : https://hrbookstore.herokuapp.com/
                 </h3>
             </div>
         `,
@@ -65,19 +65,19 @@ async function send() {
     // console.log(JSON.stringify(result, null, 4));
 }
 
-async function sendOTP(Useremail, otp) {
+async function sendOTP(Useremail,otp) {
     var email = `${Useremail}`;
     var heading = `
-    Willkommen beim StuBook.
+    Welcome to the StuBook.
     `
-    var message = `Ihr Verifizierungscode: ${otp}
+    var message = `Your verification code : ${otp}
                 `;
-    var footerMessage = `Token ist 5 Minuten gültig `;
+    var footerMessage = `OTP is valid for 5 min `;
 
     const result = await transporter.sendMail({
         from: process.env.EMAIL,
         to: email,
-        subject: 'Verifizierung | StuBook ',
+        subject: 'Varification | StuBook ',
         html: `
             <div style="width: 80%; margin: auto;">
                 <div style="width: 100%; max-width: 300px; height: 120px; margin: auto;">
@@ -90,17 +90,17 @@ async function sendOTP(Useremail, otp) {
                 <h6 style="font-size: 14px; padding: 0; margin: 0; margin-top: 50px; text-align: left;">${message}</h6>
                 <p>${footerMessage}</p>
                 <p style="font-size: 14px; padding: 0; margin: 0; margin-top: 50px; text-align: left;">
-                    Grüße
+                    Viele Grüße,
                 </p>
                 <h1 style="font-size: 16px; padding: 0; margin: 0; margin-top: 5px; text-align: left;">StuBook,</h1>
                 <h3 style="font-size: 14px; padding: 0; margin: 0; text-align: left;">
                     Admin,
                 </h3>
                 <h3 style="font-size: 14px; padding: 0; margin: 0; margin-bottom: 50px; text-align: left;">
-                    <a href="https://www.asakrah.com">Profil</a>
+                    <a href="https://www.asakrah.com/">Profil</a>
                 </h3>
                 <h3 style="font-size: 14px; padding: 0; margin: 0; margin-top: 10px; margin-bottom: 10px; text-align: center;">
-                    Bitte besuchen Sie: ${linksOfWebsite}
+                    Please Visit : ${linksOfWebsite}
                 </h3>
             </div>
         `,
@@ -115,25 +115,23 @@ async function sendOTP(Useremail, otp) {
     // console.log(JSON.stringify(result, null, 4));
 }
 
-async function UserBookInfoAdd(email, name, bookname, bookauthor,imgPath) {
+async function UserBookInfoAdd(email,name,bookname,bookauthor) {
     var email = email;
     var heading = `
     Hallo, ${name}.
     `
     var message = `
-                    <p style="margin:0;padding:0;">Willkommen beim StuBook.</p>
-                    <p style="margin:0;padding:0;">Wir haben Ihren Vorschlag erhalten bezüglich</p>
-                    <p style="margin:0;padding:0;">Buchname: ${bookname} </p>
-                    <p style="margin:0;padding:0;">Autorenname: ${bookauthor} </p>
-                    <p style="margin:0;padding:0;">ISBN: ${isbn} </p>
-                    <p style="margin:0;padding:0;">Veröffentlichungsjahr: ${publishYear} </p>
+                    <p style="margin:0;padding:0;">Willkommen im StuBook.</p>
+                    <p style="margin:0;padding:0;">Wir haben Ihren Vorschlag erhalten</p>
+                    <p style="margin:0;padding:0;">Buchname : ${bookname} </p>
+                    <p style="margin:0;padding:0;">Autorenname : ${bookauthor} </p>
                     <p style="margin:0;padding:0;">
-                    wir werden dies so bald wie möglich aktualisieren.</p>
+                    Wir werden dies so schnell wie möglich aktualisieren.</p>
                 `;
 
-    var footerMessage = `Danke für Ihre Information.`;
+    var footerMessage = `Vielen Dank, dass Sie uns informiert haben.`;
 
-    var belowMessage = `Bitte antworten Sie nicht auf diese Mail`;
+    var belowMessage = `Don't reply to this mail`;
 
     const result = await transporter.sendMail({
         from: process.env.EMAIL,
@@ -151,14 +149,11 @@ async function UserBookInfoAdd(email, name, bookname, bookauthor,imgPath) {
                 <div style="font-size: 14px; padding: 0; margin: 0; margin-top: 10px; ">${message}</div>
                 <p>${footerMessage}</p>
                 <p style="font-size: 14px; padding: 0; margin: 0; margin-top: 50px; text-align: left;">
-                    Grüße
+                Viele Grüße
                 </p>
                 <h1 style="font-size: 14px; padding: 0; margin: 0; margin-top: 5px; text-align: left;">StuBook,</h1>
                 <h3 style="font-size: 14px; padding: 0; margin: 0; font-weight:normal; text-align: left;">
                     Admin,
-                </h3>
-                <h3 style="font-size: 14px; padding: 0; margin: 0; font-weight:normal; margin-bottom: 50px; text-align: left;">
-                    <a href="https://asakrah.com>Profil</a>
                 </h3>
                 <h3 style="font-size: 14px; padding: 0; margin: 0; margin-top: 10px; margin-bottom: 10px; text-align: center;">
                     ${linksOfWebsite}
@@ -171,16 +166,23 @@ async function UserBookInfoAdd(email, name, bookname, bookauthor,imgPath) {
                 path: __dirname + "/Logocomp.png",
                 cid: "logo",
             },
-            {
-                filename: "Uploaded Image",
-                path: imgPath, // Pfad zum hochgeladenen Bild
-                cid: "uploadedimage"
-            }
         ]
     });
     // console.log(JSON.stringify(result, null, 4));
 }
 
 
-module.exports = { sendOTP, UserBookInfoAdd };
-    
+// router.post('/verify', async(req, res) => {
+//     try {
+//         // await send();
+//         let otp = createotp();
+//         sendOTP('harshrastogi172000@gmail.com',otp)
+//         res.json({ status: 0 });
+//     } catch (error) {
+//         res.json({ status: -2 });
+//     }
+// })
+
+
+
+module.exports = {sendOTP,UserBookInfoAdd};
