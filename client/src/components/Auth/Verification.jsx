@@ -65,12 +65,12 @@ function Verification() {
           } else if ( res.status===-1 ) {
             callMessage('„Nicht erfolgreich“, Sicherheitstoken stimmt nicht überein.“');
           } else {
-            callMessage('OOPs', 'Server Error');
+            callMessage('OOPs', 'Serverfehler');
           }
           setLoading(false);
         })
         .catch((err)=>{
-          callMessage('OOPs', 'Server Error');
+          callMessage('OOPs', 'Serverfehler');
           setLoading(false);
         });
   };

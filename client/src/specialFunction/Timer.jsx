@@ -22,7 +22,7 @@ function Timer(props) {
     const seconds = time % 60;
     return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
   };
-  return <div>OTP is valid for {formatTime(second)}</div>;
+  return <div>Der Token ist {formatTime(second)} gültig</div>;
 }
 
 export default Timer;

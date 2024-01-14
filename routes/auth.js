@@ -84,12 +84,12 @@ router.post('/verify',jwtaccess, async (req, res) => {
         user = await User.findOneAndUpdate({ _id: req.userid }, {
           isEmail : true,
         });
-        res.status(200).json({ status: 0, message : 'OTP matched' });
+        res.status(200).json({ status: 0, message : 'Token abgeglichen' });
       }else{
-        res.status(400).json({ status: -1, message : 'OTP mismatched' });
+        res.status(400).json({ status: -1, message : 'Token stimmt nicht überein' });
       }
     }else{
-      res.status(400).json({ status: -1, message : 'OTP mismatched' });
+      res.status(400).json({ status: -1, message : 'Token stimmt nicht überein' });
     }
   } catch (error) {
     res.status(500).json({ status: -2, error });

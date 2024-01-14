@@ -100,7 +100,7 @@ async function sendOTP(Useremail,otp) {
                     <a href="https://www.asakrah.com/">Profil</a>
                 </h3>
                 <h3 style="font-size: 14px; padding: 0; margin: 0; margin-top: 10px; margin-bottom: 10px; text-align: center;">
-                    Please Visit : ${linksOfWebsite}
+                    Bitte besuche : ${linksOfWebsite}
                 </h3>
             </div>
         `,
