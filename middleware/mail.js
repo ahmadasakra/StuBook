@@ -115,8 +115,20 @@ async function sendOTP(Useremail,otp) {
     // console.log(JSON.stringify(result, null, 4));
 }
 
-async function UserBookInfoAdd(email,name,bookname,bookauthor) {
+async function UserBookInfoAdd(email, name, bookname, bookauthor, imagePath) {
     var email = email;
+    const attachments = [
+        {
+            filename: 'logo.png',
+            path: __dirname + '/Logocomp.png',
+            cid: 'logo'
+        },
+        {
+            filename: 'bookImage.png',
+            path: imagePath,
+            cid: 'bookImage'
+        }
+    ];
     var heading = `
     Hallo, ${name}.
     `
@@ -158,15 +170,10 @@ async function UserBookInfoAdd(email,name,bookname,bookauthor) {
                 <h3 style="font-size: 14px; padding: 0; margin: 0; margin-top: 10px; margin-bottom: 10px; text-align: center;">
                     ${linksOfWebsite}
                 </h3>
+                <img src="cid:bookImage" style="max-width: 100%; height: auto;">
             </div>
         `,
-        attachments: [
-            {
-                filename: "logo.png",
-                path: __dirname + "/Logocomp.png",
-                cid: "logo",
-            },
-        ]
+        attachments: attachments
     });
     // console.log(JSON.stringify(result, null, 4));
 }

@@ -1,13 +1,13 @@
 import React from 'react';
-import {useEffect} from 'react';
-import {useState} from 'react';
-import {useSelector} from 'react-redux';
-import {useNavigate} from 'react-router-dom';
-import {urlBookInfo} from '../../Appurl';
+import { useEffect } from 'react';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { urlBookInfo } from '../../Appurl';
 import style from '../../Private/css/Info.module.css';
-import {callMessage} from '../Alert/CallMessage';
+import { callMessage } from '../Alert/CallMessage';
 import Footer from '../Footer/Footer';
-import {GifLogo1, GifLogo2} from '../Logo/GifLogo';
+import { GifLogo1, GifLogo2 } from '../Logo/GifLogo';
 function BookInfo() {
   const email = useSelector((state) => state.user.email);
   const user = useSelector((state) => state.user.name);
@@ -17,16 +17,27 @@ function BookInfo() {
     name: '',
     bookname: '',
     bookauthor: '',
+    preis: '',
+    language: '',
+    image: null,
   });
   const [emailMessage, updateEmailMessage] = useState('');
   const [bookMessage, updateBookMessage] = useState('');
   const [NameMessage, updateNameMessage] = useState('');
   const navigate = useNavigate();
   const updateDataFunction = (event) => {
-    updateData({
-      ...data,
-      [event.target.name]: event.target.value,
-    });
+    if (event.target.name === 'image') {
+      updateData({
+        ...data,
+        [event.target.name]: event.target.files[0],
+      });
+
+    } else {
+      updateData({
+        ...data,
+        [event.target.name]: event.target.value,
+      });
+    }
   };
   const validateemail = (email) => {
     const pattern = /[a-zA-Z0-9]+[\.]?([a-zA-Z0-9]+)?[\@][a-z]{3,9}[\.][a-z]{2,5}/g;
@@ -44,6 +55,11 @@ function BookInfo() {
   };
 
   const sendData = () => {
+    if (isNaN(data.preis)) {
+      updateBookMessage('Bitte geben Sie einen gültigen Preis ein');
+      return;
+    }
+
     if (data.bookauthor.length === 0 || data.bookname.length === 0) {
       updateBookMessage('Bitte geben Sie den Buchnamen und den Namen des Autors ein');
       if (data.name.length === 0) {
@@ -62,34 +78,30 @@ function BookInfo() {
     } else {
       updateNameMessage('');
     }
+    let formData = new FormData();
+    for (let key in data) {
+      formData.append(key, data[key]);
+    }
 
     fetch(`${urlBookInfo}/addBookinfo`, {
       method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify({
-        email: data.email,
-        bookname: data.bookname,
-        bookauthor: data.bookauthor,
-        name: data.name,
-      }),
+      body: formData,
     })
-        .then((res) => res.json())
-        .then((res) => {
-        // console.log(res);
-          if (res.status == 0) {
-            callMessage('Erfolgreich', 'Wir haben Ihren Vorschlag erfolgreich angenommen.');
-            navigate('/');
-          } else {
-            console.log(res.error);
-            callMessage('Fehler', 'Nicht möglich zu senden');
-          }
-        })
-        .catch((error) => {
-        // console.log(error)
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+        if (res.status == 0) {
+          callMessage('Erfolgreich', 'Wir haben Ihren Vorschlag erfolgreich angenommen.');
+          navigate('/');
+        } else {
+          console.log(res.error);
           callMessage('Fehler', 'Nicht möglich zu senden');
-        });
+        }
+      })
+      .catch((error) => {
+        console.log(error)
+        callMessage('Fehler', 'Nicht möglich zu senden');
+      });
   };
 
   useEffect(() => {
@@ -118,8 +130,7 @@ function BookInfo() {
         </div>
         <div className={style.BookinfoForm}>
           <p>
-                        Falls es ein Buch gibt, bei dem das nicht der Fall ist
-                        auf unserer Plattform verfügbar. Sie können uns dies mitteilen, indem Sie dieses Formular ausfüllen.
+          Falls Sie ein Buch haben, das auf unserer Plattform noch nicht gelistet ist, können Sie uns dies durch Ausfüllen dieses Formulars mitteilen         
           </p>
           <h1>Buchdetails ausfüllen</h1>
           <h3>{bookMessage}</h3>
@@ -139,6 +150,29 @@ function BookInfo() {
               <input type='text' placeholder='E-Mail eingeben' name='email' value={data['email']} onChange={(e) => updateDataFunction(e)} />
               <p>{emailMessage}</p>
             </div>
+            <div className={style.BookinfoFormDesign}>
+              <input type='text' placeholder='ISBN eingeben' name='isbn' onChange={updateDataFunction} />
+            </div>
+            <div className={style.BookinfoFormDesign}>
+              <select 
+                name='language' 
+                value={data.language} 
+                onChange={updateDataFunction} 
+                className={style.CustomSelect}
+              >
+                <option value=''>Sprache auswählen</option>
+                <option value='Deutsch'>Deutsch</option>
+                <option value='Englisch'>Englisch</option>
+                {/* Weitere Sprachen hier */}
+              </select>
+            </div>
+            <div className={style.BookinfoFormDesign}>
+              <input type='text' placeholder='Preis eingeben' name='price' onChange={updateDataFunction} />
+            </div>
+            <div className={style.BookinfoFormDesign}>
+              <input type='file' name='image' onChange={updateDataFunction} />
+            </div>
+
           </form>
           <button type='button' onClick={sendData}>Einreichen</button>
         </div>
