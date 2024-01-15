@@ -61,6 +61,9 @@ router.post('/addbook', jwtaccess, upload.single('img'), async (req, res) => {
 });
 
 router.post('/update/image', jwtaccess, upload.single('img'), async (req, res) => {
+    console.log("Buch-ID:", req.headers.id);
+    console.log("Empfangenes Bild:", req.file);
+
     try {
         if (!authenticate(req.userid)) {
             return res.status(400).json({ status: -10 });
@@ -74,7 +77,8 @@ router.post('/update/image', jwtaccess, upload.single('img'), async (req, res) =
         fs.unlinkSync(path.join(__dirname + "/uploads/" + req.file.filename));
         res.status(200).json({ status: 0 });
     } catch (error) {
-        res.status(500).json({ status: -1 });
+        console.error("Fehler beim Aktualisieren des Bildes:", error);
+        res.status(500).json({ status: -1, error: error.message });
     }
 })
 

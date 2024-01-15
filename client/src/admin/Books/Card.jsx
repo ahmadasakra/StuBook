@@ -18,7 +18,7 @@ function card(props) {
         <p>Publication: <span>{publication}</span></p>
         <p>Preis: <span>{preis} €</span></p>
       </div>
-      <Link to={`/admin/update/${_id}/${title}/${author}`}>Update</Link>
+      <Link to={`/admin/update/${_id}/${title}/${author}`}>Aktualisieren</Link>
     </div>
   );
 }

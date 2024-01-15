@@ -176,7 +176,7 @@ function UpdateBook() {
           Titel : <span>{booktitle}</span>
         </div>
         <div>
-          Author : <span>{bookauthor}</span>
+          Autor : <span>{bookauthor}</span>
         </div>
         <div>
           Sprache : <input type="text" name="language" value={bookInfo.language} onChange={(e) => updateDataBook(e)} />
