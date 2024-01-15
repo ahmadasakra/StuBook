@@ -74,7 +74,7 @@ function UpdateBook() {
       })
       .then((body) => {
         if (body.status === 0) {
-          callMessage('Success', 'Book Update successfully');
+          callMessage('', 'Buchaktualisierung erfolgreich');
           window.location.reload();
         } else if (res.status === -10) {
           localStorage.removeItem('adminToken');
@@ -114,7 +114,7 @@ function UpdateBook() {
     }
   };
   const handleDelete = async () => {
-    if (window.confirm('Are you sure you want to delete this book?')) {
+    if (window.confirm('Sind Sie sicher, dass Sie dieses Buch löschen möchten?')) {
       await deleteBook();
     }
   };

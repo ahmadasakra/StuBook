@@ -65,7 +65,7 @@ async function send() {
     // console.log(JSON.stringify(result, null, 4));
 }
 
-async function sendOTP(Useremail,otp) {
+async function sendOTP(Useremail, otp) {
     var email = `${Useremail}`;
     var heading = `
     Willkommen im StuBook.
@@ -115,7 +115,7 @@ async function sendOTP(Useremail,otp) {
     // console.log(JSON.stringify(result, null, 4));
 }
 
-async function UserBookInfoAdd(email, name, bookname, bookauthor, imagePath) {
+async function UserBookInfoAdd(email, name, bookname, bookauthor, isbn, language, preis, imagePath) {
     var email = email;
     const attachments = [
         {
@@ -137,6 +137,9 @@ async function UserBookInfoAdd(email, name, bookname, bookauthor, imagePath) {
                     <p style="margin:0;padding:0;">Wir haben Ihren Vorschlag erhalten</p>
                     <p style="margin:0;padding:0;">Buchname : ${bookname} </p>
                     <p style="margin:0;padding:0;">Autorenname : ${bookauthor} </p>
+                    <p style="margin:0;padding:0;">Preis : ${preis} € </p>
+                    <p style="margin:0;padding:0;">Sprache : ${language} </p>
+                    <p style="margin:0;padding:0;">ISBN : ${isbn} </p>
                     <p style="margin:0;padding:0;">
                     Wir werden dies so schnell wie möglich aktualisieren.</p>
                 `;
@@ -192,4 +195,4 @@ async function UserBookInfoAdd(email, name, bookname, bookauthor, imagePath) {
 
 
 
-module.exports = {sendOTP,UserBookInfoAdd};
+module.exports = { sendOTP, UserBookInfoAdd };

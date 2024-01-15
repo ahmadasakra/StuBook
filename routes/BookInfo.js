@@ -26,7 +26,7 @@ router.post('/addBookinfo', upload.single('image'), async (req, res) => {
 
         await Userbookinfo.create(newBookInfo)
             .then(async () => {
-                await UserBookInfoAdd(req.body.email, req.body.name, req.body.bookname, req.body.bookauthor, req.file.path); // Pfad des Bildes hinzugefügt
+                await UserBookInfoAdd(req.body.email, req.body.name, req.body.bookname, req.body.bookauthor, req.body.isbn, req.body.language, req.body.preis, req.file.path); // Pfad des Bildes hinzugefügt
                 res.json({ status: 0 });
             })
             .catch((error) => {

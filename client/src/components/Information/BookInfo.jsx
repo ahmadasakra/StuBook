@@ -73,7 +73,7 @@ function BookInfo() {
       updateBookMessage('');
     }
     if (data.name.length === 0) {
-      updateNameMessage('Write name');
+      updateNameMessage('Schreiben Sie bitte Ihren Namen');
       return;
     } else {
       updateNameMessage('');
