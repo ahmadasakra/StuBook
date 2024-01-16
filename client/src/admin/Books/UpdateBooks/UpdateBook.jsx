@@ -13,6 +13,7 @@ function UpdateBook() {
     category: '',
     contactName: '',
     email: '',
+    angebot: '',
   });
 
   let url = location.pathname;
@@ -47,7 +48,8 @@ function UpdateBook() {
             category: res.data.category,
             publication: res.data.publication,
             contactName: res.data.contactName,
-            email: res.data.email,     
+            email: res.data.email,
+            angebot: res.data.angebot,
           });
         } else {
           callMessage('Server Error', 'Details können nicht abgerufen werden');
@@ -180,6 +182,9 @@ function UpdateBook() {
         </div>
         <div>
           Sprache : <input type="text" name="language" value={bookInfo.language} onChange={(e) => updateDataBook(e)} />
+        </div>
+        <div>
+          Angebot : <input type="text" name="angebot" value={bookInfo.angebot} onChange={(e) => updateDataBook(e)} />
         </div>
         <div>
           Kategorie : <select id="category" name="category" onChange={(e) => updateDataBook(e)}>

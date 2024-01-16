@@ -20,6 +20,7 @@ function DetailBook() {
   let bookauthor = arrdata[4];
   const [category, updatecategory] = useState('');
   const [language, updatelanuage] = useState('');
+  const [angebot, updateangebot] = useState('');
   const [publication, updatepublication] = useState('');
   const [preis, setPreis] = useState('');
   const [IsLoading, updateLoading] = useState(false);
@@ -53,6 +54,7 @@ function DetailBook() {
         // console.log(res);
         if (res.status === 0) {
           updatelanuage(res.data.language);
+          updateangebot(res.data.angebot);
           updatecategory(res.data.category);
           updatepublication(res.data.publication);
           setPreis(res.data.preis);
@@ -124,6 +126,7 @@ function DetailBook() {
             <h4>Preis: <span>{preis} €</span></h4>
             <h3>Kontaktname: <span>{contactName}</span></h3>
             <h3>E-Mail: <span>{email}</span></h3>
+            <h3>Angebot:<span> {angebot}</span></h3>
 
             <button type='button' onClick={addFavourite}>Zum Favoriten hinzufügen</button>
           </div>

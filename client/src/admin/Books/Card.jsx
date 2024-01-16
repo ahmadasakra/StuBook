@@ -4,7 +4,7 @@ import FetchImage from '../../specialFunction/FetchImage';
 import {Link} from 'react-router-dom';
 function card(props) {
   const {detail} = props;
-  const {_id, title, author, language, publication, category, preis} = detail;
+  const {_id, title, author, language, publication, category, preis, angebot} = detail;
   return (
     <div className={style.admincard}>
       <div className={style.admincardImage}>
@@ -17,6 +17,7 @@ function card(props) {
         <p>Lanugage: <span>{language}</span></p>
         <p>Publication: <span>{publication}</span></p>
         <p>Preis: <span>{preis} €</span></p>
+        <p>Angebot: <span>{angebot} €</span></p>
       </div>
       <Link to={`/admin/update/${_id}/${title}/${author}`}>Aktualisieren</Link>
     </div>

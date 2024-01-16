@@ -19,6 +19,7 @@ function BookInfo() {
     bookauthor: '',
     preis: '',
     language: '',
+    angebot: '',
     image: null,
   });
   const [emailMessage, updateEmailMessage] = useState('');
@@ -171,6 +172,18 @@ function BookInfo() {
                 <option value='Deutsch'>Deutsch</option>
                 <option value='Englisch'>Englisch</option>
                 {/* Weitere Sprachen hier */}
+              </select>
+            </div>
+            <div className={style.BookinfoFormDesign}>
+              <select
+                name='angebot'
+                value={data.angebot}
+                onChange={updateDataFunction}
+                className={style.CustomSelect}
+              >
+                <option value=''>Angebot</option>
+                <option value='verkaufen'>Verkaufen</option>
+                <option value='vermieten'>Vermieten</option>
               </select>
             </div>
             <div className={style.BookinfoFormDesign}>

@@ -5,6 +5,7 @@ const schema = new mongoose.Schema(
         title: { type: String, required: true },
         author: { type: String, required: true },
         language: { type: String, required: true },
+        angebot: { type: String, required: true },
         publication: { type: String, required: true },
         category: { type: String },
         preis: { type: Number, required: true },

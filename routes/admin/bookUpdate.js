@@ -26,6 +26,7 @@ router.post('/addbook', jwtaccess, upload.single('img'), async (req, res) => {
             title: req.body.title,
             author: req.body.author,
             language: req.body.language,
+            angebot: req.body.angebot,
             publication: req.body.publication,
             preis: req.body.preis,
             category: req.body.category,
@@ -89,6 +90,7 @@ router.post('/update/data', jwtaccess, async (req, res) => {
         }
         await Books.findByIdAndUpdate({ _id: req.headers.id }, {
             language: req.body.language,
+            angebot: req.body.angebot,
             publication: req.body.publication,
             category: req.body.category,
             contactName: req.body.contactName,

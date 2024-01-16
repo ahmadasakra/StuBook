@@ -115,7 +115,7 @@ async function sendOTP(Useremail, otp) {
     // console.log(JSON.stringify(result, null, 4));
 }
 
-async function UserBookInfoAdd(email, name, bookname, bookauthor, isbn, language, preis, imagePath) {
+async function UserBookInfoAdd(email, name, bookname, bookauthor, isbn, language, preis,angebot, imagePath) {
     var email = email;
     const attachments = [
         {
@@ -140,6 +140,7 @@ async function UserBookInfoAdd(email, name, bookname, bookauthor, isbn, language
                     <p style="margin:0;padding:0;">Preis : ${preis} € </p>
                     <p style="margin:0;padding:0;">Sprache : ${language} </p>
                     <p style="margin:0;padding:0;">ISBN : ${isbn} </p>
+                    <p style="margin:0;padding:0;">Sprache : ${angebot} </p>
                     <p style="margin:0;padding:0;">
                     Wir werden dies so schnell wie möglich aktualisieren.</p>
                 `;

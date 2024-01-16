@@ -20,13 +20,14 @@ router.post('/addBookinfo', upload.single('image'), async (req, res) => {
             bookauthor: req.body.bookauthor || '', // Optional
             isbn: req.body.isbn || '',           // Hinzugefügt
             language: req.body.language,   // Hinzugefügt
+            angebot: req.body.angebot,   // Hinzugefügt
             preis: req.body.preis,
             imagePath: req.file.path       // Hinzugefügt
         };
 
         await Userbookinfo.create(newBookInfo)
             .then(async () => {
-                await UserBookInfoAdd(req.body.email, req.body.name, req.body.bookname, req.body.bookauthor, req.body.isbn, req.body.language, req.body.preis, req.file.path); // Pfad des Bildes hinzugefügt
+                await UserBookInfoAdd(req.body.email, req.body.name, req.body.bookname, req.body.bookauthor, req.body.isbn, req.body.language, req.body.preis, req.body.angebot, req.file.path); // Pfad des Bildes hinzugefügt
                 res.json({ status: 0 });
             })
             .catch((error) => {

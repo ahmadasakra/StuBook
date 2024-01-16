@@ -61,6 +61,11 @@ function BookAddForm() {
             <input type="text" id="language" name="language" placeholder='Sprache' />
           </div>
           <div>
+            <label htmlFor="angebot">Angebot</label>
+            <input type="text" id="angebot" name="angebot" placeholder='Angebot' />
+          </div>
+
+          <div>
             <label htmlFor="publication">Veröffentlichung</label>
             <input type="text" id="publication" name="publication" placeholder='Veröffentlichung' />
           </div>
