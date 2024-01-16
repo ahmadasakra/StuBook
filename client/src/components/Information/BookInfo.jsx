@@ -74,6 +74,14 @@ function BookInfo() {
     } else {
       updateNameMessage('');
     }
+
+    if (data.preis.length === 0) {
+      updateNameMessage('Bitte geben Sie gültigen Preis an');
+      return;
+    } else {
+      updateNameMessage('');
+    }
+
     let formData = new FormData();
     for (let key in data) {
       formData.append(key, data[key]);
@@ -126,7 +134,7 @@ function BookInfo() {
         </div>
         <div className={style.BookinfoForm}>
           <p>
-          Falls Sie ein Buch haben, das auf unserer Plattform noch nicht gelistet ist, können Sie uns dies durch Ausfüllen dieses Formulars mitteilen         
+            Um ein neues Buch zum Verkauf oder zur Vermietung anzubieten, nutzen Sie bitte unser Formular, um uns die erforderlichen Informationen mitzuteilen.
           </p>
           <h1>Buchdetails ausfüllen</h1>
           <h3>{bookMessage}</h3>
@@ -150,10 +158,13 @@ function BookInfo() {
               <input type='text' placeholder='ISBN eingeben' name='isbn' onChange={updateDataFunction} />
             </div>
             <div className={style.BookinfoFormDesign}>
-              <select 
-                name='language' 
-                value={data.language} 
-                onChange={updateDataFunction} 
+              <input type='text' placeholder='Preis eingeben' name='preis' onChange={updateDataFunction} />
+            </div>
+            <div className={style.BookinfoFormDesign}>
+              <select
+                name='language'
+                value={data.language}
+                onChange={updateDataFunction}
                 className={style.CustomSelect}
               >
                 <option value=''>Sprache auswählen</option>
@@ -161,9 +172,6 @@ function BookInfo() {
                 <option value='Englisch'>Englisch</option>
                 {/* Weitere Sprachen hier */}
               </select>
-            </div>
-            <div className={style.BookinfoFormDesign}>
-              <input type='text' placeholder='Preis eingeben' name='price' onChange={updateDataFunction} />
             </div>
             <div className={style.BookinfoFormDesign}>
               <input type='file' name='image' onChange={updateDataFunction} />
