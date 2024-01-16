@@ -7,6 +7,7 @@ const bookinfo = mongoose.Schema({
     bookauthor: { type: String, required: false},
     isbn: { type: String, required: false},
     language: { type: String, required: true},
+    angebot: { type: String, required: true},
     preis: { type: String, required: true},
 })
 

@@ -58,11 +58,19 @@ function BookAddForm() {
           </div>
           <div>
             <label htmlFor="language">Sprache</label>
-            <input type="text" id="language" name="language" placeholder='Sprache' />
+            <select id="language" name="language">
+              <option value="Deutsch">Deutsch</option>
+              <option value="Englisch">Englisch</option>
+              {/* Weitere Sprachen hier */}
+            </select>
           </div>
           <div>
             <label htmlFor="angebot">Angebot</label>
-            <input type="text" id="angebot" name="angebot" placeholder='Angebot' />
+            <select id="angebot" name="angebot">
+              <option value="Verkaufen">Verkaufen</option>
+              <option value="Vermieten">Vermieten</option>
+              {/* Weitere Optionen hier */}
+            </select>
           </div>
 
           <div>

@@ -8,7 +8,7 @@ function Home() {
   return (
     <div>
       <div className={style.homeclass}>
-        <Corousel type='All' delay='3050' />
+        <Corousel type='Alle' delay='3050' />
         <div className={style.HomecorouselShow}>
           <div className={style.Homecorouselwidth}>
             <Corousel type='Novel' delay='3100' />
