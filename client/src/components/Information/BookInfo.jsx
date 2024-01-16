@@ -68,14 +68,6 @@ function BookInfo() {
     } else {
       updateBookMessage('');
     }
-    
-    if (data.preis.length === 0) {
-      updateNameMessage('Bitte geben Sie einen gültigen Preis ein');
-      return;
-    } else {
-      updateNameMessage('');
-    }
-
     if (data.name.length === 0) {
       updateNameMessage('Schreiben Sie bitte Ihren Namen');
       return;
