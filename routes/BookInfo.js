@@ -20,7 +20,7 @@ router.post('/addBookinfo', upload.single('image'), async (req, res) => {
             bookauthor: req.body.bookauthor || '', // Optional
             isbn: req.body.isbn || '',           // Hinzugefügt
             language: req.body.language,   // Hinzugefügt
-            preis: parseFloat(req.body.preis) || 0, // Preis nur als Nummer
+            preis: req.body.preis,
             imagePath: req.file.path       // Hinzugefügt
         };
 
