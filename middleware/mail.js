@@ -140,7 +140,7 @@ async function UserBookInfoAdd(email, name, bookname, bookauthor, isbn, language
                     <p style="margin:0;padding:0;">Preis : ${preis} € </p>
                     <p style="margin:0;padding:0;">Sprache : ${language} </p>
                     <p style="margin:0;padding:0;">ISBN : ${isbn} </p>
-                    <p style="margin:0;padding:0;">Sprache : ${angebot} </p>
+                    <p style="margin:0;padding:0;">Angebot : ${angebot} </p>
                     <p style="margin:0;padding:0;">
                     Wir werden dies so schnell wie möglich aktualisieren.</p>
                 `;
