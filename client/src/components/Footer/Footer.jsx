@@ -20,8 +20,9 @@ function Footer() {
           </div>
           <div className={style.footerSecA}>
             <Link to='/category/All'>Alle Bücher</Link>
-            <Link to='/category/Novel'>Novel</Link>
-            <Link to='/category/Story'>Story</Link>
+            <Link to='/category/Informatik'>Informatik</Link>
+            <Link to='/category/BWL'>BWL</Link>
+            <Link to='/category/Bauingenieurwesen'>Bauingenieurwesen</Link>
           </div>
           <div className={style.footerSecA}>
           </div>

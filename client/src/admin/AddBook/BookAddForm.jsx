@@ -87,13 +87,14 @@ function BookAddForm() {
             {/* <input type='text' id='category' name='category' /> */}
             <select id="category" name="category">
               <option value="Select">Wählen</option>
-              <option value="Novel">Novel</option>
-              <option value="Story">Story</option>
+              <option value="Informatik">Informatik</option>
+              <option value="BWL">BWL</option>
+              <option value="Bauingenieurwesen">Bauingenieurwesen</option>
             </select>
           </div>
 
           <div>
-            <label htmlFor="img">Image</label>
+            <label htmlFor="img">Bild</label>
             <input type="file" id="img" name="img" required />
           </div>
 

@@ -189,8 +189,9 @@ function UpdateBook() {
         <div>
           Kategorie : <select id="category" name="category" onChange={(e) => updateDataBook(e)}>
             <option value={bookInfo.category}>{bookInfo.category}</option>
-            <option value="Novel">Novel</option>
-            <option value="Story">Story</option>
+            <option value="Informatik">Informatik</option>
+            <option value="BWL">BWL</option>
+            <option value="Bauingenieurwesen">Bauingenieurwesen</option>
           </select>
         </div>
         <div>

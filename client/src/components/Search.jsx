@@ -69,8 +69,9 @@ function Search() {
           <div className={styles.select}>
             <select name="category" id="" onChange={(e) => changeData(e)}>
               <option value="All">Alle</option>
-              <option value="Novel">Novel</option>
-              <option value="Story">Story</option>
+              <option value="Informatik">Informatik</option>
+              <option value="BWL">BWL</option>
+              <option value="Bauingenieurwesen">Bauingenieurwesen</option>
             </select>
           </div>
           <DebounceInput placeholder='Buchname' name='title' debounceTimeout={500} onChange={(e) => changeData(e)} value={searchdata['title']} />

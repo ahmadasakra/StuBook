@@ -53,8 +53,9 @@ function Books() {
       <div style={{'width': '91%', 'margin': 'auto'}}>
         <select id="category" name="category" style={{'width': '99%', 'margin': 'auto', 'height': '30px', 'fontSize': '15px'}} onChange={(e)=>updateType(e.target.value)}>
           <option value="All">Alle</option>
-          <option value="Novel">Novel</option>
-          <option value="Story">Story</option>
+          <option value="Informatik">Informatik</option>
+          <option value="BWL">BWL</option>
+          <option value="Bauingenieurwesen">Bauingenieurwesen</option>
         </select>
       </div>
       <div style={cardstyle}>
