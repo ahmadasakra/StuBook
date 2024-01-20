@@ -1,14 +1,14 @@
-import React, {useEffect} from 'react';
+import React, { useEffect, useState } from 'react';
 import '../../Private/css/Navbar.css';
-import {Link, useLocation, useNavigate} from 'react-router-dom';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faBars} from '@fortawesome/free-solid-svg-icons';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 import Logo from '../Logo/Logo';
 import CartIcon from '../Cart/CartIcon';
 import Sidenavbar from './Sidenavbar';
-import {useDispatch, useSelector} from 'react-redux';
-import {updateUser} from '../../actions/user';
-import {authToken, urlauth} from '../../Appurl';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateUser } from '../../actions/user';
+import { authToken, urlauth } from '../../Appurl';
 
 function Navbar() {
   const location = useLocation();
@@ -17,8 +17,9 @@ function Navbar() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const isEmailVerify = useSelector((state) => state.user.isEmail);
+  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  useEffect(()=>{
+  useEffect(() => {
     if (isEmailVerify === false) {
       navigate('/email/verify');
     }
@@ -33,9 +34,9 @@ function Navbar() {
         'auth_token': authToken,
       },
     }).then((response) => response.json())
-        .then((data) => {
-          userdata = data;
-        });
+      .then((data) => {
+        userdata = data;
+      });
     if (userdata.status === 0) {
       dispatch(updateUser(userdata.data));
     } else {
@@ -50,8 +51,8 @@ function Navbar() {
     window.location.reload();
   };
 
-  const navtoggler = () => {
-    document.getElementById('sidenavdisplay').style.width = '100%';
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!isMobileMenuOpen);
   };
 
   useEffect(() => {
@@ -66,11 +67,11 @@ function Navbar() {
   }, [location]);
 
   return (
-    <div className='navbar'>
-      <div className='navtoggler' onClick={navtoggler}>
+    <div className={`navbar ${isMobileMenuOpen ? 'mobile-menu-open' : ''}`}>
+      <div className='navtoggler' onClick={toggleMobileMenu}>
         <FontAwesomeIcon icon={faBars} />
       </div>
-      <Sidenavbar logoutfunc={logoutuser} />
+      <Sidenavbar logoutfunc={logoutuser} isOpen={isMobileMenuOpen} toggleMenu={toggleMobileMenu} />
       <Logo />
       <ul className='navlinks'>
         <li>

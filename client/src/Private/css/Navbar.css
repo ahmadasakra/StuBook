@@ -1,35 +1,34 @@
+/* Navbar Container */
 .navbar {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    align-items: center;
     position: fixed;
     width: 100%;
-    background-color: #333; /* Darker shade for modern look */
-    top: 0;
-    z-index: 10;
-    box-shadow: 0 2px 4px rgba(0,0,0,.3); /* Add shadow for depth */
-}
-body.dark {
-    background-color: #121212;
-    color: white;
-  }
-  
-  body.dark .card {
     background-color: #333;
-    color: #fff;
-  }
-  
-  body.dark .navbar {
-    background-color: #222;
-    color: #fff;
-  }
-.navtoggler {
-    margin: 3px 10px;
-    font-size: 24px;
-    display: none; /* Hidden by default, shown in media query */
-    align-items: center;
-    cursor: pointer;
+    top: 0;
+    z-index: 1000;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease-in-out;
 }
 
+/* Dark Mode */
+body.dark .navbar {
+    background-color: #121212;
+    color: white;
+}
+
+/* Navbar Toggler Icon (Mobile Menu) */
+.navtoggler {
+    font-size: 24px;
+    display: none;
+    align-items: center;
+    cursor: pointer;
+    color: #fff;
+}
+
+/* Navigation Links (Desktop) */
 .navlinks {
     padding: 0;
     display: flex;
@@ -39,21 +38,22 @@ body.dark {
 }
 
 .navlinks li {
-    margin: 0 15px; /* Adjusted margin for better spacing */
+    margin: 0 15px;
 }
 
 .navlinkpath {
     font-size: 18px;
-    font-weight: 500; /* Slightly bolder */
-    color: #FFF; /* Light color for contrast */
+    font-weight: 500;
+    color: #FFF;
     text-decoration: none;
-    transition: color 0.3s; /* Smooth transition for hover effect */
+    transition: color 0.3s;
 }
 
 .navlinkpath:hover {
-    color: #04AA6D; /* Bright color for hover */
+    color: #04AA6D;
 }
 
+/* Authentication Links (Desktop) */
 .navauth {
     display: flex;
     list-style: none;
@@ -63,31 +63,32 @@ body.dark {
 }
 
 .navauth li {
-    margin: 0 10px; /* Adjusted margin */
+    margin: 0 10px;
 }
 
 .navauthpath {
     text-decoration: none;
     font-size: 18px;
-    color: #FFF; /* Light color for contrast */
-    background-color: transparent; /* Remove background for a cleaner look */
+    color: #FFF;
+    background-color: transparent;
     padding: 2px 8px;
     border-radius: 3px;
-    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .navauthpath:hover {
-    background-color: #04AA6D; /* Bright color for hover */
-    color: #FFF; /* White text on hover */
+    background-color: #04AA6D;
+    color: #FFF;
 }
 
+/* Dropdown Menu (Desktop) */
 .dropbtn {
-    background-color: #4C4C4C; /* Darker button color */
-    color: #FFF; /* Light text color */
+    background-color: #4C4C4C;
+    color: #FFF;
     padding: 10px;
     font-size: 16px;
     border: none;
-    border-radius: 3px; /* Rounded corners */
+    border-radius: 3px;
 }
 
 .dropdown-content {
@@ -96,38 +97,95 @@ body.dark {
     background-color: #f9f9f9;
     min-width: 160px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    border-radius: 3px; /* Rounded corners */
+    border-radius: 3px;
     z-index: 1;
 }
 
 .dropdown-content a {
-    color: #333; /* Darker text for contrast */
+    color: #333;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-    transition: background-color 0.3s; /* Smooth transition */
+    transition: background-color 0.3s;
 }
 
 .dropdown-content a:hover {
-    background-color: #04AA6D; /* Bright color for hover */
-    color: #FFF; /* White text on hover */
+    background-color: #04AA6D;
+    color: #FFF;
 }
 
 .dropdown:hover .dropdown-content {
     display: block;
 }
 
-@media (max-width:810px) {
-    .navlinks {
-        display: none;
-    }
-    .navtoggler {
-        display: flex;
-    }
+/* Mobile Menu (Sidenavbar) */
+.mobile-menu-open .navtoggler {
+    color: #04AA6D;
 }
 
-@media (max-width:620px) {
-    .navauth {
-        display: none;
-    }
+.mobile-menu-open .navlinks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 70%;
+    max-width: 300px;
+    z-index: 1001;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(0);
+}
+
+.mobile-menu-open .navlinks li {
+    margin: 20px 0;
+}
+
+.mobile-menu-open .navlinks .navlinkpath {
+    font-size: 20px;
+}
+
+.mobile-menu-open .navauth {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-menu-open .navauth li {
+    margin: 10px 0;
+}
+
+.mobile-menu-open .navauth .navauthpath {
+    font-size: 20px;
+}
+
+/* Dark Mode for Navbar */
+body.dark .navbar {
+    background-color: #121212;
+    color: white;
+}
+
+body.dark .navbar .navlinkpath {
+    color: white;
+}
+
+body.dark .navbar .navauthpath {
+    color: white;
+}
+
+body.dark .navbar .dropbtn {
+    background-color: #4C4C4C;
+    color: white;
+}
+
+body.dark .navbar .dropdown-content a {
+    color: #333;
+}
+
+body.dark .navbar .dropdown-content a:hover {
+    background-color: #04AA6D;
+    color: white;
 }
