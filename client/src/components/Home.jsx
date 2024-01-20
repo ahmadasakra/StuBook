@@ -21,7 +21,6 @@ function Home() {
 
         <Corousel type='BWL' delay='3200' />
 
-        {/* Hier fügen Sie das neue Corousel für Bauingenieurwesen hinzu */}
         <Corousel type='Bauingenieurwesen' delay='3300' />
       </div>
 

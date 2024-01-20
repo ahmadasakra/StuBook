@@ -98,7 +98,7 @@ function Navbar() {
                 Login
               </Link>
             </li>
-            <li>Oder</li>
+            <li className='oder'> Oder</li>
             <li><Link className='navauthpath' to="/signup">Registrieren</Link></li>
           </div>
         }
