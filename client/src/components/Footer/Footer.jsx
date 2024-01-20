@@ -20,10 +20,10 @@ function Footer() {
           </div>
           <div className={style.footerSecA}>
             <h2>Kategorien</h2>
-            <Link to='/category/all'>Alle Bücher</Link>
-            <Link to='/category/informatik'>Informatik</Link>
-            <Link to='/category/bwl'>BWL</Link>
-            <Link to='/category/bauingenieurwesen'>Bauingenieurwesen</Link>
+            <Link to='/category/All'>Alle Bücher</Link>
+            <Link to='/category/Informatik'>Informatik</Link>
+            <Link to='/category/BWL'>BWL</Link>
+            <Link to='/category/Bauingenieurwesen'>Bauingenieurwesen</Link>
           </div>
           <div className={style.footerSecB}>
             <h2>Kontaktiere uns</h2>
