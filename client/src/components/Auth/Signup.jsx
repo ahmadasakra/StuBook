@@ -61,7 +61,7 @@ function Signup() {
           }
         })
         .catch(() => {
-          updateWarning('Something is wrong');
+          updateWarning('Irgendwas stimmt nicht');
         });
   };
 
@@ -74,19 +74,19 @@ function Signup() {
   useEffect(() => {
     const valide = validateemail(signupDetail.email);
     if (!valide && signupDetail.email.length > 0) {
-      updateWarningEmail('Invalid Email');
+      updateWarningEmail('Ungültige E-Mail');
     } else {
       updateWarningEmail('');
     }
 
     if (signupDetail.password.length > 0 && signupDetail.password.length < 5) {
-      updateWarningPass('There should be minimum 5 letter in password');
+      updateWarningPass('Das Passwort sollte mindestens 5 Buchstaben enthalten');
     } else {
       updateWarningPass('');
     }
 
     if (signupDetail.Cpassword.length > 0 && signupDetail.Cpassword !== signupDetail.password) {
-      updateWarningCPass('Password and Confirm Password should be same');
+      updateWarningCPass('Passwort und Passwort bestätigen sollten gleich sein');
     } else {
       updateWarningCPass('');
     }
@@ -118,7 +118,7 @@ function Signup() {
             <input id="address" type='text' onFocus={float} name="address" value={signupDetail.address} onChange={(e) => updatevalue(e)} />
           </fieldset>
           <fieldset className='float-label-field'>
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email">E-Mail</label>
             <input id="email" type='Email' onFocus={float} name="email" value={signupDetail.email} onChange={(e) => updatevalue(e)} />
             <p className='warning'>{warningEmail}</p>
           </fieldset>
