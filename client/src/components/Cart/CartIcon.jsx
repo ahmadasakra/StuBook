@@ -8,7 +8,8 @@ function CartIcon() {
     fontSize: '24px',
     display: 'flex',
     alignItems: 'center',
-    padding:'20px',
+    paddingLeft:'20px',
+    paddingRight:'20px',
   };
 
   const [check, setCount] = useState(true);
