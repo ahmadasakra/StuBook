@@ -75,7 +75,7 @@ function Navbar() {
       <Logo />
       <ul className='navlinks'>
         <li>
-          <Link className='navlinkpath' to="/">Start</Link>
+          <Link className='navlinkpath' to="/">Startseite</Link>
         </li>
         <li><Link className='navlinkpath' to="/search">Suche</Link></li>
         <li><Link className='navlinkpath' to="/about">Über</Link></li>
