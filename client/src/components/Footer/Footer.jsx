@@ -42,7 +42,7 @@ function Footer() {
             <a href='https://www.stubook.de/' rel='noreferrer' target='_blank'>
               <FontAwesomeIcon icon={faLinkedin} />
             </a>
-            <a href='https://www.stubook.de/' rel='noreferrer' target='_blank'>
+            <a href='https://www.instagram.com/studbook.saarland/' rel='noreferrer' target='_blank'>
               <FontAwesomeIcon icon={faInstagram} />
             </a>
           </div>
