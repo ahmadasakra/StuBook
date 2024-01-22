@@ -36,13 +36,13 @@ function Footer() {
             <p>&copy; {new Date().getFullYear()} StuBook. Alle Rechte vorbehalten</p>
           </div>
           <div className={style.SocialFooter}>
-            <a href='https://github.com/ahmadasakra' rel='noreferrer' target='_blank'>
+            <a href='https://www.stubook.de/' rel='noreferrer' target='_blank'>
               <FontAwesomeIcon icon={faGithub} />
             </a>
-            <a href='https://www.linkedin.com/in/aasakra/' rel='noreferrer' target='_blank'>
+            <a href='https://www.stubook.de/' rel='noreferrer' target='_blank'>
               <FontAwesomeIcon icon={faLinkedin} />
             </a>
-            <a href='https://www.instagram.com/ahmadasakra/' rel='noreferrer' target='_blank'>
+            <a href='https://www.stubook.de/' rel='noreferrer' target='_blank'>
               <FontAwesomeIcon icon={faInstagram} />
             </a>
           </div>

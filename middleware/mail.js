@@ -47,10 +47,10 @@ async function send() {
                     Admin,
                 </h3>
                 <h3 style="font-size: 14px; padding: 0; margin: 0; margin-bottom: 50px; text-align: left;">
-                    <a href="https://www.asakrah.com/">Profil</a>
+                    <a href="https://www.stubook.de/">Profil</a>
                 </h3>
                 <h3 style="font-size: 14px; padding: 0; margin: 0; margin-top: 10px; margin-bottom: 10px; text-align: center;">
-                    Bitte besuche : https://asakrah.com/
+                    Bitte besuche : https://www.stubook.de/
                 </h3>
             </div>
         `,
@@ -97,7 +97,7 @@ async function sendOTP(Useremail, otp) {
                     Admin,
                 </h3>
                 <h3 style="font-size: 14px; padding: 0; margin: 0; margin-bottom: 50px; text-align: left;">
-                    <a href="https://www.asakrah.com/">Profil</a>
+                    <a href="https://www.stubook.de/">Profil</a>
                 </h3>
                 <h3 style="font-size: 14px; padding: 0; margin: 0; margin-top: 10px; margin-bottom: 10px; text-align: center;">
                     Bitte besuche : ${linksOfWebsite}
